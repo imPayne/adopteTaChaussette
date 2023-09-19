@@ -16,6 +16,7 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
+        "pull": "git pull && npm i && composer i",
         "reload-db": "php bin/console doctrine:database:drop --force && php bin/console doctrine:database:create && php bin/console doctrine:migrations:migrate && php bin/console doctrine:fixtures:load",
         "server": "php -S localhost:8000 -t public -c php.ini",
         "dev-server": "encore dev-server",
