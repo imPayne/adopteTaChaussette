@@ -5,9 +5,16 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\User;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-class UserFixture extends Fixture
+class UserFixtures extends Fixture
 {
+    private UserPasswordHasherInterface $hasher;
+
+    public function __construct(UserPasswordHasherInterface $hasher)
+    {
+        $this->hasher = $hasher;
+    }
     public function load(ObjectManager $manager)
     {
         // Créez et persistez des objets User avec des données de test
@@ -15,7 +22,8 @@ class UserFixture extends Fixture
         $user->setFirstname('john');
         $user->setLastname('doe');
         $user->setEmail('john@example.com');
-        $user->setPassword('1234');
+        $user->setPassword($this->hasher->hashPassword($user, 'john'));
+        $user->setBirthDay(new \DateTime('1990-01-01'));
 
         $manager->persist($user);
 
