@@ -13,8 +13,6 @@ class Car
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $car_registration_code = null;
 
     #[ORM\Column(length: 255)]
     private ?string $model = null;
@@ -28,6 +26,9 @@ class Car
     #[ORM\Column(length: 255)]
     private ?string $color = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $registrationNumber = null;
+
     #[ORM\OneToOne(inversedBy: 'car', cascade: ['persist', 'remove'])]
     private ?CarRegistration $CarRegistration = null;
 
@@ -36,17 +37,6 @@ class Car
         return $this->id;
     }
 
-    public function getCarRegistrationCode(): ?string
-    {
-        return $this->car_registration_code;
-    }
-
-    public function setCarRegistrationCode(string $car_registration_code): static
-    {
-        $this->car_registration_code = $car_registration_code;
-
-        return $this;
-    }
 
     public function getModel(): ?string
     {
@@ -95,7 +85,17 @@ class Car
 
         return $this;
     }
+    public function getregistrationNumber(): ?string
+    {
+        return $this->registrationNumber;
+    }
 
+    public function setregistrationNumber(string $registrationNumber): static
+    {
+        $this->registrationNumber = $registrationNumber;
+
+        return $this;
+    }
     public function getCarRegistration(): ?CarRegistration
     {
         return $this->CarRegistration;
