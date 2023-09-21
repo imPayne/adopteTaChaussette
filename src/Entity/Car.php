@@ -28,6 +28,9 @@ class Car
     #[ORM\Column(length: 255)]
     private ?string $color = null;
 
+    #[ORM\OneToOne(inversedBy: 'car', cascade: ['persist', 'remove'])]
+    private ?CarRegistration $CarRegistration = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +92,18 @@ class Car
     public function setColor(string $color): static
     {
         $this->color = $color;
+
+        return $this;
+    }
+
+    public function getCarRegistration(): ?CarRegistration
+    {
+        return $this->CarRegistration;
+    }
+
+    public function setCarRegistration(?CarRegistration $CarRegistration): static
+    {
+        $this->CarRegistration = $CarRegistration;
 
         return $this;
     }

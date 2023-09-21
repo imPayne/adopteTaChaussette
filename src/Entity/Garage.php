@@ -25,6 +25,9 @@ class Garage
     #[ORM\Column]
     private ?int $phone_number = null;
 
+    #[ORM\OneToOne(inversedBy: 'garage', cascade: ['persist', 'remove'])]
+    private ?CarRegistration $CarRegistration = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Garage
     public function setPhoneNumber(int $phone_number): static
     {
         $this->phone_number = $phone_number;
+
+        return $this;
+    }
+
+    public function getCarRegistration(): ?CarRegistration
+    {
+        return $this->CarRegistration;
+    }
+
+    public function setCarRegistration(?CarRegistration $CarRegistration): static
+    {
+        $this->CarRegistration = $CarRegistration;
 
         return $this;
     }

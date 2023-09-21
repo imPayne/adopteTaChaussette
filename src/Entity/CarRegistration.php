@@ -29,6 +29,12 @@ class CarRegistration
     #[ORM\ManyToOne(inversedBy: 'CarRegistration')]
     private ?User $user = null;
 
+    #[ORM\OneToOne(mappedBy: 'CarRegistration', cascade: ['persist', 'remove'])]
+    private ?Garage $garage = null;
+
+    #[ORM\OneToOne(mappedBy: 'CarRegistration', cascade: ['persist', 'remove'])]
+    private ?Car $car = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +96,50 @@ class CarRegistration
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getGarage(): ?Garage
+    {
+        return $this->garage;
+    }
+
+    public function setGarage(?Garage $garage): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($garage === null && $this->garage !== null) {
+            $this->garage->setCarRegistration(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($garage !== null && $garage->getCarRegistration() !== $this) {
+            $garage->setCarRegistration($this);
+        }
+
+        $this->garage = $garage;
+
+        return $this;
+    }
+
+    public function getCar(): ?Car
+    {
+        return $this->car;
+    }
+
+    public function setCar(?Car $car): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($car === null && $this->car !== null) {
+            $this->car->setCarRegistration(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($car !== null && $car->getCarRegistration() !== $this) {
+            $car->setCarRegistration($this);
+        }
+
+        $this->car = $car;
 
         return $this;
     }
