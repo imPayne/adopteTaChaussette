@@ -26,6 +26,9 @@ class CarRegistration
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $bill_date = null;
 
+    #[ORM\ManyToOne(inversedBy: 'CarRegistration')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class CarRegistration
     public function setBillDate(\DateTimeInterface $bill_date): static
     {
         $this->bill_date = $bill_date;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

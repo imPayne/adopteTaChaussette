@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -38,6 +40,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $birth_day = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: CarRegistration::class)]
+    private Collection $CarRegistration;
+
+    public function __construct()
+    {
+        $this->CarRegistration = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -141,6 +151,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setBirthDay(\DateTimeInterface $birth_day): static
     {
         $this->birth_day = $birth_day;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CarRegistration>
+     */
+    public function getCarRegistration(): Collection
+    {
+        return $this->CarRegistration;
+    }
+
+    public function addCarRegistration(CarRegistration $carRegistration): static
+    {
+        if (!$this->CarRegistration->contains($carRegistration)) {
+            $this->CarRegistration->add($carRegistration);
+            $carRegistration->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCarRegistration(CarRegistration $carRegistration): static
+    {
+        if ($this->CarRegistration->removeElement($carRegistration)) {
+            // set the owning side to null (unless already changed)
+            if ($carRegistration->getUser() === $this) {
+                $carRegistration->setUser(null);
+            }
+        }
 
         return $this;
     }
