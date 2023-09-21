@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\CarRegistration;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\User;
@@ -24,6 +25,11 @@ class UserFixtures extends Fixture
         $user->setEmail('john@example.com');
         $user->setPassword($this->hasher->hashPassword($user, 'john'));
         $user->setBirthDay(new \DateTime('1990-01-01'));
+
+        $car_registration = new CarRegistration();
+
+
+
 
         $manager->persist($user);
 
