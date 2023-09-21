@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Validator\Constraints\Date;
 
 class RegistrationFormType extends AbstractType
 {
@@ -23,7 +24,14 @@ class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('first_name', TextType::class)
             ->add('last_name', TextType::class)
-            ->add('birth_day', DateType::class)
+            ->add('birth_day', DateType::class, [
+                'html5' => true,
+                'widget' => 'single_text',
+                'attr' => [
+                    'min' => (new \DateTime('-130 years'))->format('Y-m-d'),
+                    'max' => (new \DateTime('now'))->format('Y-m-d'),
+                ],
+            ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller

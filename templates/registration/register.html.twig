@@ -3,25 +3,28 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-
-
-<div class="flex justify-center items-center">
-    <div class="flex flex-col w-96 m-10 p-10 items-center justify-center bg-gray-200 rounded-lg">
-        <h1 class="text-2xl font-bold mb-4">Inscription de compte</h1>
-
-        {{ form_start(registrationForm, {'attr': {'class': 'w-full max-w-md'}}) }}
-            {{ form_row(registrationForm.first_name, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500  focus:shadow-outline-blue'}, 'label': 'Prénom'}) }}
-            {{ form_row(registrationForm.last_name, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500  focus:shadow-outline-blue'}, 'label': 'Nom'}) }}
-            {{ form_label(registrationForm.birth_day, 'Date de naissance', {'class': 'block text-gray-700 font-bold mb-2'}) }}
-            {{ form_widget(registrationForm.birth_day, {'attr': {'class': 'w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:shadow-outline-blue mr-2', 'placeholder': 'Modifiez ou non la date choisis'}}) }}
-            {{ form_row(registrationForm.email, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500  focus:shadow-outline-blue'}}) }}
-            {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'mb-4 w-full px-3 py-2 rounded-lg border-gray-300 focus:border-indigo-500  focus:shadow-outline-blue'}, 'label': 'Mot de passe'}) }}
-
-        <div class="flex items-center justify-center flex-col">
-            <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded  focus:shadow-outline-indigo">S'inscrire</button>
-        </div>
-        {{ form_end(registrationForm) }}
+<div class="my-44 flex flex-col items-center justify-center">
+    <h1 class="text-2xl mb-10 font-bold">Inscription de compte</h1>
+    {{ form_start(registrationForm, {'attr': {'class': 'w-full max-w-md'}}) }}
+    <div class="mb-4">
+        {{ form_row(registrationForm.first_name, {'attr': {'class': 'w-full px-4 py-2 rounded-lg border focus:ring focus:ring-blue-300 focus:border-blue-300', 'placeholder': 'Prénom'}, 'label': 'Prénom'}) }}
     </div>
+    <div class="mb-4">
+        {{ form_row(registrationForm.last_name, {'attr': {'class': 'w-full px-4 py-2 rounded-lg border focus:ring focus:ring-blue-300 focus:border-blue-300', 'placeholder': 'Nom'}, 'label': 'Nom'}) }}
+    </div>
+    <div class="mb-4">
+        {{ form_label(registrationForm.birth_day, 'Date de naissance', {'class': 'text-sm font-medium'}) }}
+        {{ form_widget(registrationForm.birth_day, {'attr': {'class': 'w-full px-4 py-2 rounded-lg border focus:ring focus:ring-blue-300 focus:border-blue-300', 'placeholder': 'Modifiez ou non la date choisie'}}) }}
+    </div>
+    <div class="mb-4">
+        {{ form_row(registrationForm.email, {'attr': {'class': 'w-full px-4 py-2 rounded-lg border focus:ring focus:ring-blue-300 focus:border-blue-300', 'placeholder': 'Adresse e-mail'}, 'label': 'Email'}) }}
+    </div>
+    <div class="mb-4">
+        {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'w-full px-4 py-2 rounded-lg border focus:ring focus:ring-blue-300 focus:border-blue-300', 'placeholder': 'Mot de passe'}, 'label': 'Mot de passe'}) }}
+    </div>
+    <div class="flex items-center justify-center">
+        <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:shadow-outline-indigo">S'inscrire</button>
+    </div>
+    {{ form_end(registrationForm) }}
 </div>
-
 {% endblock %}
