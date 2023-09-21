@@ -61,7 +61,7 @@ class CarRegistrationType extends AbstractType
                 'mapped' => false,
             ])
             ->add('garageMail', TextType::class, [
-                'label' => 'Immatriculation',
+                'label' => 'Mail',
                 'required' => true,
                 'mapped' => false,
             ])
