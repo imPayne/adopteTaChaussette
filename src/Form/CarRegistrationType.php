@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Range;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 
 class CarRegistrationType extends AbstractType
@@ -30,8 +31,9 @@ class CarRegistrationType extends AbstractType
                 'mapped' => false,
                 'attr' => [
                     'min' => 0, // Valeur minimale du range
-                    'max' => 10000000, // Valeur maximale du range
-                    'step' => 8, // Incrément du range
+                    'max' => 1000000, // Valeur maximale du range
+                    'step' => 1, // Incrément du range
+                    'oninput' => 'updateRangeValue(this.value)'
                 ]
             ])
             ->add('kilometer', TextType::class, [
@@ -49,8 +51,8 @@ class CarRegistrationType extends AbstractType
                 'required' => true,
                 'mapped' => false,
             ])
-            ->add('bill_date', TextType::class, [
-                'label' => 'Immatriculation',
+            ->add('bill_date', DateType::class, [
+                'label' => 'Date de Facturation',
                 'required' => true,
                 'mapped' => true,
             ])
@@ -60,7 +62,7 @@ class CarRegistrationType extends AbstractType
                 'mapped' => false,
             ])
             ->add('garageMail', TextType::class, [
-                'label' => 'Immatriculation',
+                'label' => 'Mail',
                 'required' => true,
                 'mapped' => false,
             ])

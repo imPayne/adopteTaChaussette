@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Immat Voiture{% endblock %}</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.webp') }}">
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Immat Voiture
+			{% endblock %}
+		</title>
+		<link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.webp') }}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz@1,6..96&display=swap" rel="stylesheet">
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-            
-        {% endblock %}
-    </head>
-    <body>
-        {% include './_navbar.html.twig' %}
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
 
-        {% block body %}
-    
-        
-        {% endblock %}
+		{% endblock %}
+	</head>
+	<body>
+		{% include './_navbar.html.twig' %}
 
-        {% include './_footer.html.twig' %}
-    </body>
+		{% block body %}{% endblock %}
+
+		{% include './_footer.html.twig' %}
+	</body>
 </html>
+
