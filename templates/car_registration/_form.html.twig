@@ -46,8 +46,12 @@
             <span class="text-red-500 text-xl">*</span>
         </div>
         <div>
+<<<<<<< HEAD
             {{ form_widget(form.carPrice, {'attr': {'id': 'carPriceRange'}}) }}
             <input type="text" id="carPriceValue" readonly>
+=======
+            {{ form_widget(form.carPrice, {'attr': {'placeholder': ' Modèle Véhicule', 'class': 'w-full px-4 py-2 rounded-lg border focus:ring focus:ring-blue-300 focus:border-blue-300'}}) }}
+>>>>>>> b7309b2 (Nouvelle version Front Form)
         </div>
     </div>
 
@@ -98,12 +102,18 @@
             Nom
             <span class="text-red-500 text-xl">*</span>
         </div>
+<<<<<<< HEAD
             {{ form_widget(form.garageName, {
         'attr': {
             'placeholder': ' NOM Prénom',
             'class': 'w-full px-4 py-2 rounded-lg border focus:ring focus:ring-blue-300 focus:border-blue-300 font-bodoni text-red-500'
         }
     }) }}
+=======
+        <div>
+            {{ form_widget(form.garageName, {'attr': {'placeholder': ' NOM Prénom', 'class': 'w-full px-4 py-2 rounded-lg border focus:ring focus:ring-blue-300 focus:border-blue-300'}}) }}
+        </div>
+>>>>>>> b7309b2 (Nouvelle version Front Form)
     </div>
 
     <div class="mb-4">
@@ -112,12 +122,16 @@
             <span class="text-red-500 text-xl">*</span>
         </div>
         <div>
+<<<<<<< HEAD
             {{ form_widget(form.garageMail, {
         'attr': {
             'placeholder': ' Email',
             'class': 'w-full px-4 py-2 font-bold rounded-lg border focus:ring focus:ring-blue-300 focus:border-blue-300 font-bodoni text-green-500'
         }
     }) }}
+=======
+            {{ form_widget(form.garageMail, {'attr': {'placeholder': ' Email', 'class': 'w-full px-4 py-2 rounded-lg border focus:ring focus:ring-blue-300 focus:border-blue-300'}}) }}
+>>>>>>> b7309b2 (Nouvelle version Front Form)
         </div>
     </div>
 
@@ -177,10 +191,13 @@ vous pouvez soumettre votre demande.
 
     {{ form_end(form) }}
 </div>
+<<<<<<< HEAD
 
 <script>
 function updateRangeValue(value) {
     document.getElementById("carPriceValue").value = value;
 }
 </script>
+=======
+>>>>>>> b7309b2 (Nouvelle version Front Form)
 {% endblock %}
