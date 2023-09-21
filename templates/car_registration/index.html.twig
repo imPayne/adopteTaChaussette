@@ -3,8 +3,8 @@
 {% block title %}New CarRegistration{% endblock %}
 
 {% block body %}
-    <h1>Create new CarRegistration</h1>
-
+    <div class="text-center">
+        <img class="h-24 mx-auto" src="{{ asset('img/favicon.webp') }}" alt="Logo">
+    </div>
     {{ include('car_registration/_form.html.twig') }}
-
 {% endblock %}
