@@ -31,8 +31,9 @@ class CarRegistrationType extends AbstractType
                 'mapped' => false,
                 'attr' => [
                     'min' => 0, // Valeur minimale du range
-                    'max' => 10000000, // Valeur maximale du range
-                    'step' => 8, // Incrément du range
+                    'max' => 1000000, // Valeur maximale du range
+                    'step' => 1, // Incrément du range
+                    'oninput' => 'updateRangeValue(this.value)'
                 ]
             ])
             ->add('kilometer', TextType::class, [
@@ -61,7 +62,7 @@ class CarRegistrationType extends AbstractType
                 'mapped' => false,
             ])
             ->add('garageMail', TextType::class, [
-                'label' => 'Immatriculation',
+                'label' => 'Mail',
                 'required' => true,
                 'mapped' => false,
             ])
