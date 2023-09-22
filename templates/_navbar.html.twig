@@ -9,6 +9,9 @@
                 <li class="font-semibold-nunito text-lg sm:text-xl md:text-xl font-bold mr-10 hover:underline">
                     <a href="{{ path('car_registration') }}">Faire mon immatriculation</a>
                 </li>
+                <li class="font-semibold-nunito text-lg sm:text-xl md:text-xl font-bold mr-10">
+                    <a href="{{ path('app_my_car_registration') }}">mes immatriculations</a>
+                </li>
                 
             </ul>
             {% if app.user is defined and app.user is not null %}
