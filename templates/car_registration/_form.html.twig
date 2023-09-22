@@ -177,10 +177,32 @@ vous pouvez soumettre votre demande.
 
     {{ form_end(form) }}
 </div>
-
 <script>
 function updateRangeValue(value) {
     document.getElementById("carPriceValue").value = value;
 }
+
+
+// Script JavaScript pour Hexadécimale
+var colorInput = document.getElementById("car_registration_color");
+
+colorInput.addEventListener("input", function() {
+    var colorValue = colorInput.value;
+
+    if (colorValue !== null && colorValue.trim() !== '') {
+        var hexPattern = /^#[0-9A-Fa-f]{6}$/;
+
+        if (hexPattern.test(colorValue)) {
+            console.log("La couleur est en hexadécimal valide : " + colorValue);
+            
+        } else {
+            console.log("La couleur n'est pas en hexadécimal valide : " + colorValue);
+        }
+    } else {
+        console.log("La couleur est null ou vide.");
+    }
+});
+
+
 </script>
 {% endblock %}
