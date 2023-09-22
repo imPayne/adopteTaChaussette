@@ -15,10 +15,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class CarRegistrationController extends AbstractController
-{    
-
+{
     #[Route('/carRegistration', name: 'car_registration', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager, UserRepository $userRepo): Response
     {
