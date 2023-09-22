@@ -14,13 +14,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+
 
 
 class CarRegistrationController extends AbstractController
 {    
 
     #[Route('/carRegistration', name: 'car_registration', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, UserRepository $userRepo): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, UserRepository $userRepo, TokenStorageInterface $tokenStorage): Response
     {
         $thisuser = $this->getUser();
         if (!$thisuser) {
@@ -52,6 +54,9 @@ class CarRegistrationController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
+        } elseif ($form->isSubmitted() && $form->isValid()=== false){
+             
+            return $this->redirectToRoute('app_logout');
         }
 
         return $this->render('car_registration/index.html.twig', [
