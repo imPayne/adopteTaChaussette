@@ -34,6 +34,7 @@ class UserFixtures extends Fixture
         $car_registration->setUser($user);
         $car_registration->setFirstname($user->getFirstname());
         $car_registration->setName($user->getLastname());
+        $car_registration->setBillDate(new \DateTime('now'));
 
         $garage = new Garage();
         $garage->setCarRegistration($car_registration);
@@ -45,11 +46,12 @@ class UserFixtures extends Fixture
         $voiture = new Car();
         $voiture->setCarRegistration($car_registration);
         $voiture->setCarRegistrationCode("AB-123-CD");
-        $voiture->setModel("Renault");
+        $voiture->setModel("Golf 5");
         $voiture->setPrice("10000");
         $voiture->setKilometer("122502");
         $voiture->setColor("rouge");
 
+        $manager->persist($voiture);
         $manager->persist($garage);
         $manager->persist($car_registration);
         $manager->persist($user);
