@@ -3,12 +3,25 @@
 {% block title %}Immat Voiture{% endblock %}
 
 {% block body %}
-
-    <div class="mt-24 flex flex-col items-center justify-center">
-        <h1 class="text-2xl font-bold">Mes Immatriculations</h1>
-        <div class="flex flex-col">
-
+    <div class="m-6">
+        <h1 class="text-2xl font-bold mb-4">Mes Immatriculations</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {% for carRegistration in myCarRegistrations %}
+                <div class="bg-white p-6 shadow-md rounded-lg">
+                    <p class="text-lg font-semibold">Nom: {{ carRegistration.firstname }}</p>
+                    <p class="text-lg">Prénom: {{ carRegistration.name }}</p>
+                    <p class="text-lg font-semibold">N° de siret: {{ carRegistration.siret }}</p>
+                    <p class="text-lg">Date du dossier: {{ carRegistration.billDate|date('Y-m-d') }}</p>
+                    <p class="text-lg font-semibold">Nom du garage: {{ carRegistration.garage.name }}</p>
+                    <p class="text-lg">Adresse: {{ carRegistration.garage.address }}</p>
+                    <p class="text-lg font-semibold">N° téléphone du garage: {{ carRegistration.garage.phoneNumber }}</p>
+                    <p class="text-lg">Modèle de voiture: {{ carRegistration.car.model }}</p>
+                    <p class="text-lg font-semibold">Couleur du véhicule: {{ carRegistration.car.color }}</p>
+                    <p class="text-lg">Kilométrage du véhicule: {{ carRegistration.car.kilometer }}</p>
+                    <p class="text-lg font-semibold">Prix du véhicule: {{ carRegistration.car.price }}€</p>
+                    <p class="text-lg">Code d'immatriculation: {{ carRegistration.car.carRegistrationCode }}</p>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
-

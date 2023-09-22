@@ -17,10 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 
-
 class CarRegistrationController extends AbstractController
-{    
-
+{
     #[Route('/carRegistration', name: 'car_registration', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager, UserRepository $userRepo, TokenStorageInterface $tokenStorage): Response
     {
