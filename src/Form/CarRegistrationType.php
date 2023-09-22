@@ -21,27 +21,27 @@ class CarRegistrationType extends AbstractType
         $builder
             ->add('siret', TextType::class, [
                 'label' => 'Modèle du véhicule',
-                'required' => false,
+                'required' => true,
                 'mapped' => true,])
 
             ->add('name', TextType::class, [
                 'label' => 'Modèle du véhicule',
-                'required' => false,
+                'required' => true,
                 'mapped' => true,])
 
             ->add('firstname', TextType::class, [
                 'label' => 'Modèle du véhicule',
-                'required' => false,
+                'required' => true,
                 'mapped' => true,])
 
             ->add('carModel', TextType::class, [
                 'label' => 'Modèle du véhicule',
-                'required' => false,
+                'required' => true,
                 'mapped' => false,
             ])
             ->add('carPrice', RangeType::class, [
                 'label' => 'Prix',
-                'required' => false,
+                'required' => true,
                 'mapped' => false,
                 'attr' => [
                     'min' => 0, // Valeur minimale du range
@@ -52,7 +52,7 @@ class CarRegistrationType extends AbstractType
             ])
             ->add('kilometer', RangeType::class, [
                 'label' => 'Kilométrage',
-                'required' => false,
+                'required' => true,
                 'mapped' => false,
                 'attr' => [
                     'min' => 0, // Valeur minimale du range
@@ -63,48 +63,48 @@ class CarRegistrationType extends AbstractType
             ])
             ->add('color', TextType::class, [
                 'label' => 'Couleur',
-                'required' => false,
+                'required' => true,
                 'mapped' => false,
             ])
             ->add('registration', TextType::class, [
                 'label' => 'Immatriculation',
-                'required' => false,
+                'required' => true,
                 'mapped' => false,
             ])
             ->add('bill_date', DateTimeType::class, [ 
                 'label' => 'Date de Facturation',
-                'required' => false,
+                'required' => true,
                 'mapped' => true,
                 'html5' => true, 
             ])
             ->add('garageName', TextType::class, [
                 'label' => 'Nom',
-                'required' => false,
+                'required' => true,
                 'mapped' => false,
             ])
             ->add('garageMail', TextType::class, [
                 'label' => 'Mail',
-                'required' => false,
+                'required' => true,
                 'mapped' => false,
             ])
             ->add('garageCity', TextType::class, [
                 'label' => 'Ville',
-                'required' => false,
+                'required' => true,
                 'mapped' => false,
             ])
             ->add('garageCP', NumberType::class, [
                 'label' => 'Code postal',
-                'required' => false,
+                'required' => true,
                 'mapped' => false,
             ])
             ->add('garageAdress', TextType::class, [
                 'label' => 'Adresse',
-                'required' => false,
+                'required' => true,
                 'mapped' => false,
             ])
             ->add('garagePhone', NumberType::class, [
                 'label' => 'N° Téléphone',
-                'required' => false,
+                'required' => true,
                 'mapped' => false,
             ])
             
