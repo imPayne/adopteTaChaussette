@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints\Range;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 
 class CarRegistrationType extends AbstractType
@@ -57,10 +58,11 @@ class CarRegistrationType extends AbstractType
                 'required' => true,
                 'mapped' => false,
             ])
-            ->add('bill_date', DateType::class, [
+            ->add('bill_date', DateTimeType::class, [ 
                 'label' => 'Date de Facturation',
-                'required' => true,
+                'required' => false,
                 'mapped' => true,
+                'html5' => true, 
             ])
             ->add('garageName', TextType::class, [
                 'label' => 'Nom',
