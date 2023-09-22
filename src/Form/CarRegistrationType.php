@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints\Range;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\MailType;
 
@@ -46,13 +47,19 @@ class CarRegistrationType extends AbstractType
                     'min' => 0, // Valeur minimale du range
                     'max' => 1000000, // Valeur maximale du range
                     'step' => 1, // Incrément du range
-                    'oninput' => 'updateRangeValue(this.value)'
+                    'oninput' => 'updatePriceValue(this.value)'
                 ]
             ])
             ->add('kilometer', RangeType::class, [
                 'label' => 'Kilométrage',
                 'required' => false,
                 'mapped' => false,
+                'attr' => [
+                    'min' => 0, // Valeur minimale du range
+                    'max' => 100000, // Valeur maximale du range
+                    'step' => 1, // Incrément du range
+                    'oninput' => 'updateKilometerValue(this.value)'
+                ]
             ])
             ->add('color', TextType::class, [
                 'label' => 'Couleur',
@@ -64,10 +71,11 @@ class CarRegistrationType extends AbstractType
                 'required' => false,
                 'mapped' => false,
             ])
-            ->add('bill_date', DateType::class, [
+            ->add('bill_date', DateTimeType::class, [ 
                 'label' => 'Date de Facturation',
                 'required' => false,
                 'mapped' => true,
+                'html5' => true, 
             ])
             ->add('garageName', TextType::class, [
                 'label' => 'Nom',

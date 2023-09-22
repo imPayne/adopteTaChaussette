@@ -46,8 +46,8 @@
             <span class="text-red-500 text-xl">*</span>
         </div>
         <div>
-            {{ form_widget(form.carPrice, {'attr': {'id': 'carPriceRange'}}) }}
-            <input type="text" id="carPriceValue" readonly>
+            {{ form_widget(form.carPrice, {'attr': {'id': 'carPriceRange', 'value': 0}}) }}
+            <input type="text" id="carPriceValue" value="0" class="ml-10" readonly>
         </div>
     </div>
 
@@ -58,7 +58,8 @@
             <span class="text-red-500 text-xl">*</span>
         </div>
         <div>
-            {{ form_widget(form.kilometer, {'attr': {'placeholder': ' Kilomètres', 'class': 'w-full px-4 py-2 rounded-lg border focus:ring focus:ring-blue-300 focus:border-blue-300'}}) }}
+            {{ form_widget(form.kilometer, {'attr': {'id': 'kilometerRange', 'value': 0}}) }}
+            <input type="text" id="kilometerValue" value="0" class="ml-10" readonly>
         </div>
     </div>
 
@@ -177,10 +178,38 @@ vous pouvez soumettre votre demande.
 
     {{ form_end(form) }}
 </div>
-
 <script>
-function updateRangeValue(value) {
+// Fonction pour mettre à jour la valeur du champ de prix
+function updatePriceValue(value) {
     document.getElementById("carPriceValue").value = value;
 }
+
+// Fonction pour mettre à jour la valeur du champ de kilométrage
+function updateKilometerValue(value) {
+    document.getElementById("kilometerValue").value = value;
+}
+
+
+// Script JavaScript pour Hexadécimale
+var colorInput = document.getElementById("car_registration_color");
+
+colorInput.addEventListener("input", function() {
+    var colorValue = colorInput.value;
+
+    if (colorValue !== null && colorValue.trim() !== '') {
+        var hexPattern = /^#[0-9A-Fa-f]{6}$/;
+
+        if (hexPattern.test(colorValue)) {
+            console.log("La couleur est en hexadécimal valide : " + colorValue);
+
+        } else {
+            console.log("La couleur n'est pas en hexadécimal valide : " + colorValue);
+        }
+    } else {
+        console.log("La couleur est null ou vide.");
+    }
+});
+
+
 </script>
 {% endblock %}
