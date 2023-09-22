@@ -82,7 +82,7 @@ class CarRegistrationType extends AbstractType
                 'required' => false,
                 'mapped' => false,
             ])
-            ->add('garageMail', MailType::class, [
+            ->add('garageMail', TextType::class, [
                 'label' => 'Mail',
                 'required' => false,
                 'mapped' => false,
@@ -92,7 +92,7 @@ class CarRegistrationType extends AbstractType
                 'required' => false,
                 'mapped' => false,
             ])
-            ->add('garageCP', Number::class, [
+            ->add('garageCP', NumberType::class, [
                 'label' => 'Code postal',
                 'required' => false,
                 'mapped' => false,
