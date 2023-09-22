@@ -33,13 +33,19 @@ class CarRegistrationType extends AbstractType
                     'min' => 0, // Valeur minimale du range
                     'max' => 1000000, // Valeur maximale du range
                     'step' => 1, // Incrément du range
-                    'oninput' => 'updateRangeValue(this.value)'
+                    'oninput' => 'updatePriceValue(this.value)'
                 ]
             ])
-            ->add('kilometer', TextType::class, [
+            ->add('kilometer', RangeType::class, [
                 'label' => 'Kilométrage',
                 'required' => true,
                 'mapped' => false,
+                'attr' => [
+                    'min' => 0, // Valeur minimale du range
+                    'max' => 100000, // Valeur maximale du range
+                    'step' => 1, // Incrément du range
+                    'oninput' => 'updateKilometerValue(this.value)'
+                ]
             ])
             ->add('color', TextType::class, [
                 'label' => 'Couleur',
