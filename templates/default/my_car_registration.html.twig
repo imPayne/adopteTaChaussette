@@ -9,17 +9,17 @@
             {% for carRegistration in myCarRegistrations %}
                 <div class="bg-white p-6 shadow-md rounded-lg">
                     <p class="text-lg font-semibold">Nom: {{ carRegistration.firstname }}</p>
-                    <p class="text-lg font-semibold">Prénom: {{ carRegistration.name }}</p>
+                    <p class="text-lg">Prénom: {{ carRegistration.name }}</p>
                     <p class="text-lg font-semibold">N° de siret: {{ carRegistration.siret }}</p>
-                    <p class="text-lg font-semibold">Date du dossier: {{ carRegistration.billDate|date('Y-m-d') }}</p>
+                    <p class="text-lg">Date du dossier: {{ carRegistration.billDate|date('Y-m-d') }}</p>
                     <p class="text-lg font-semibold">Nom du garage: {{ carRegistration.garage.name }}</p>
-                    <p class="text-lg font-semibold">Adresse: {{ carRegistration.garage.address }}</p>
+                    <p class="text-lg">Adresse: {{ carRegistration.garage.address }}</p>
                     <p class="text-lg font-semibold">N° téléphone du garage: {{ carRegistration.garage.phoneNumber }}</p>
-                    <p class="text-lg font-semibold">Modèle de voiture: {{ carRegistration.car.model }}</p>
+                    <p class="text-lg">Modèle de voiture: {{ carRegistration.car.model }}</p>
                     <p class="text-lg font-semibold">Couleur du véhicule: {{ carRegistration.car.color }}</p>
-                    <p class="text-lg font-semibold">Kilométrage du véhicule: {{ carRegistration.car.kilometer }}</p>
+                    <p class="text-lg">Kilométrage du véhicule: {{ carRegistration.car.kilometer }}</p>
                     <p class="text-lg font-semibold">Prix du véhicule: {{ carRegistration.car.price }}€</p>
-                    <p class="text-lg font-semibold">Code d'immatriculation: {{ carRegistration.car.carRegistrationCode }}</p>
+                    <p class="text-lg">Code d'immatriculation: {{ carRegistration.car.carRegistrationCode }}</p>
                 </div>
             {% endfor %}
         </div>
